@@ -27,4 +27,8 @@ export default defineNuxtConfig({
     defaultLocale: "vi",
     strategy: "prefix_except_default",
   },
+  app: {
+    baseURL: "/udfpage.github.io/",
+  },
+  ssr: false,
 });
