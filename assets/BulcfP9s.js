@@ -1,0 +1,1 @@
+import{u as a}from"./BhwP5V57.js";import{c as r,a as t,u as o,t as u,o as i}from"./yQ2QP6_A.js";const v={__name:"solar-clean-bot",setup(p){const{setLocale:n}=a();return(l,e)=>(i(),r("div",null,[t("div",null,[t("button",{onClick:e[0]||(e[0]=s=>o(n)("en"))},"en"),t("button",{onClick:e[1]||(e[1]=s=>o(n)("vi"))},"vi"),t("p",null,u(l.$t("welcome")),1)])]))}};export{v as default};

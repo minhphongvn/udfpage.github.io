@@ -1,0 +1,1 @@
+import{_ as n,c as o,a as t,o as s}from"./yQ2QP6_A.js";const r={};function c(a,e){return s(),o("div",null,e[0]||(e[0]=[t("h1",null,"Components Tester",-1)]))}const _=n(r,[["render",c]]);export{_ as default};
