@@ -27,7 +27,9 @@ export default defineNuxtConfig({
     defaultLocale: "vi",
     strategy: "prefix_except_default",
   },
-  nitro: {
-    preset: "github_pages",
+
+  app: {
+    baseURL: "/udfpage.github.io/",
+    buildAssetsDir: "assets",
   },
 });
