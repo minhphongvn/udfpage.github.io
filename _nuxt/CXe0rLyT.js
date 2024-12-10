@@ -1,0 +1,1 @@
+import{u as r}from"./BCDfWq4Y.js";import{v as a,x as n,C as o,y as i,t as u}from"./CxPAU5A7.js";const c={__name:"index",setup(p){const{setLocale:t}=r();return(s,e)=>(u(),a("div",null,[n("div",null,[n("button",{onClick:e[0]||(e[0]=l=>o(t)("en"))},"en"),n("button",{onClick:e[1]||(e[1]=l=>o(t)("vi"))},"vi"),n("p",null,i(s.$t("welcome")),1)])]))}};export{c as default};
