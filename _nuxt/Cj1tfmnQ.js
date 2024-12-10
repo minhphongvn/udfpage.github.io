@@ -1,1 +1,0 @@
-import{_ as o,v as n,x as s,z as c,t as r,D as a}from"./CxPAU5A7.js";const _={};function d(u,e){const t=a;return r(),n("div",null,[e[0]||(e[0]=s("div",null,"Products",-1)),c(t)])}const p=o(_,[["render",d]]);export{p as default};
