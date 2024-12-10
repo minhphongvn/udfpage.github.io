@@ -1,0 +1,1 @@
+import{u as r}from"./ywbco3O1.js";import{v as a,x as t,C as o,y as u,t as i}from"./-LXpcs1_.js";const c={__name:"solar",setup(p){const{setLocale:n}=r();return(s,e)=>(i(),a("div",null,[t("div",null,[t("button",{onClick:e[0]||(e[0]=l=>o(n)("en"))},"en"),t("button",{onClick:e[1]||(e[1]=l=>o(n)("vi"))},"vi"),t("p",null,u(s.$t("welcome")),1)])]))}};export{c as default};
