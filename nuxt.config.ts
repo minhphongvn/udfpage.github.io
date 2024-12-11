@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/i18n"],
+  modules: ["@nuxtjs/i18n", "@vueuse/nuxt"],
   i18n: {
     vueI18n: "./i18n.config.ts",
     locales: [
@@ -32,4 +32,17 @@ export default defineNuxtConfig({
     baseURL: "/udfpage.github.io/",
     buildAssetsDir: "assets",
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        "/",
+        "/en", // thêm các route cần prerender
+      ],
+    },
+  },
+  experimental: {
+    payloadExtraction: false,
+  },
+  ssr: true,
 });
