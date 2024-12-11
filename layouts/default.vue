@@ -6,14 +6,21 @@ const head = useLocaleHead();
 <template>
   <div>
     <Html>
-      <Head>
-        <Title>Nuxt App</Title>
-      </Head>
-      <Body>
-        <BaseAppHeader />
-        <slot />
+
+    <Head>
+      <Title>Nuxt App</Title>
+    </Head>
+
+    <Body>
+      <BaseAppHeader />
+      <div class="container mx-auto pt-10 px-4">
+        <div class="py-10">
+          <slot />
+        </div>
         <BaseAppFooter />
-      </Body>
+      </div>
+    </Body>
+
     </Html>
   </div>
 </template>
