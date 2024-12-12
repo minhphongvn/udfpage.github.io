@@ -5,7 +5,7 @@
       <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
           <div class="text-justify">
-            <p class="text-lg mb-4">{{ t("about.description") }}</p>
+            <p class="text-sm md:text-lg mb-4">{{ t("about.description") }}</p>
           </div>
         </div>
       </div>
@@ -15,7 +15,7 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl font-semibold text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-12">
             {{ t("products.title") }}
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -36,10 +36,10 @@
                   referrerpolicy="no-referrer"
                 />
                 <div class="ml-4 md:ml-0">
-                  <h3 class="font-semibold mb-2 md:text-center">
+                  <h3 class="font-semibold mb-2 md:text-center text-sm">
                     {{ product.name }}
                   </h3>
-                  <div class="md:text-center">
+                  <div class="md:text-center text-sm">
                     {{ product.description }}
                   </div>
                 </div>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="max-w-7xl mx-auto py-10">
-          <h2 class="text-3xl font-semibold text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-semibold text-center mb-12">
             {{ t("strategic_partnership") }}
           </h2>
           <div>

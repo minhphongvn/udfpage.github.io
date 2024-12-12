@@ -31,6 +31,15 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/udfpage.github.io/",
     buildAssetsDir: "assets",
+    head: {
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/udfpage.github.io/udf_logo.png",
+        },
+      ],
+    },
   },
   nitro: {
     prerender: {

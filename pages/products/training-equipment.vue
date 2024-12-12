@@ -4,19 +4,25 @@
       <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
           <div class="text-justify">
-            <p class="text-lg mb-4">
-              {{ t('description') }}
+            <p class="text-sm md:text-lg mb-4">
+              {{ t("description") }}
             </p>
           </div>
           <div>
-            <iframe width="1335" height="694" src="https://www.youtube.com/embed/YDHaaf9KeWs"
-              title="2. Mô hình FMS đào taọ lập trình PLC [Flexible Manufacturing System model for PLC programming]"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/YDHaaf9KeWs"
+                title="2. Mô hình FMS đào taọ lập trình PLC [Flexible Manufacturing System model for PLC programming]"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                class="w-full h-full min-h-[400px]"
+              />
+            </div>
           </div>
-          <div class="text-center text-xl my-4">
-            {{ t('content') }}
+          <div class="text-center text-sm md:text-lg my-4">
+            {{ t("content") }}
           </div>
         </div>
       </div>

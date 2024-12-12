@@ -8,7 +8,7 @@ const { t } = useI18n();
       <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
           <h1 class="text-4xl font-bold text-center">
-            {{ t("productsList.solarCleanBot") }}
+            <!-- {{ t("productsList.solarCleanBot") }} -->
           </h1>
         </div>
       </div>

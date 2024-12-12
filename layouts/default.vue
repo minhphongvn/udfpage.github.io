@@ -70,44 +70,46 @@ const isContactPage = computed(() => {
 <template>
   <div>
     <Html>
+      <Head>
+        <Title>Uni Design Factory</Title>
+      </Head>
 
-    <Head>
-      <Title>Uni Design Factory</Title>
-    </Head>
-
-    <Body>
-      <BaseAppHeader />
-      <div>
-        <section class="pt-16">
-          <div class="relative">
-            <div class="bg-orange-500 py-6">
-              <template v-if="contentHero.bg">
-                <img :src="`/udfpage.github.io/${contentHero.bg}`" alt="Robots" class="w-full max-w-4xl mx-auto h-auto"
-                  referrerpolicy="no-referrer" />
-              </template>
-              <template v-else>
-                <div class="w-full text-center max-w-6xl mx-auto h-auto">
-                  <h1 class="text-4xl font-bold text-white">
-                    {{ contentHero.title }}
-                  </h1>
-                </div>
-              </template>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div>
+      <Body>
+        <BaseAppHeader />
         <div>
-          <slot />
+          <section class="pt-16">
+            <div class="relative">
+              <div class="bg-orange-500 py-6">
+                <template v-if="contentHero.bg">
+                  <img
+                    :src="`/udfpage.github.io/${contentHero.bg}`"
+                    alt="Robots"
+                    class="w-full max-w-4xl mx-auto h-auto"
+                    referrerpolicy="no-referrer"
+                  />
+                </template>
+                <template v-else>
+                  <div class="w-full text-center max-w-6xl mx-auto h-auto">
+                    <h1 class="text-2xl md:text-4xl font-bold text-white">
+                      {{ contentHero.title }}
+                    </h1>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="container max-w-7xl mx-auto px-4">
-          <footer class="py-16 bg-white">
-            <BaseAppFooter v-if="!isContactPage" />
-          </footer>
+        <div>
+          <div>
+            <slot />
+          </div>
+          <div class="container max-w-7xl mx-auto px-4">
+            <footer class="py-16 bg-white">
+              <BaseAppFooter v-if="!isContactPage" />
+            </footer>
+          </div>
         </div>
-      </div>
-    </Body>
-
+      </Body>
     </Html>
   </div>
 </template>
@@ -128,9 +130,9 @@ const isContactPage = computed(() => {
     "home": "Trang chủ",
     "products": "Sản phẩm",
     "productsList": {
-      "solarCleanBot": "Robot rửa xe mặt trời",
-      "componentsTester": "Máy kiểm tra linh kiện",
-      "factoryAutomation": "Hệ thống tự động hóa",
+      "solarCleanBot": "Robot vệ sinh solar",
+      "componentsTester": "Thiết bị kiểm tra linh kiện",
+      "factoryAutomation": "Tự động hoá sản xuất",
       "trainingEquipment": "Thiết bị đào tạo"
     },
     "about": "Về chúng tôi",

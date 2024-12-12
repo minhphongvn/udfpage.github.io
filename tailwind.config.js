@@ -10,10 +10,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        comfortaa: ["Comfortaa", "sans-serif"],
+      },
       colors: {
         orange: {
           500: "#fd9902",
-        }
+        },
       },
     },
   },

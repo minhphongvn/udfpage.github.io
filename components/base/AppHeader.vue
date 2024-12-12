@@ -1,27 +1,27 @@
 <template>
   <nav
-    class="fixed p-4 w-full transition-all duration-300 text-[18px] z-50"
+    class="fixed p-4 w-full transition-all duration-300 z-50"
     :class="{
       'bg-orange-500': !scrolled,
       'bg-white shadow-lg': scrolled,
-      'shadow-lg': screenWidth < 768,
+      'shadow-lg': mobileMenu,
     }"
   >
-    <div class="container max-w-7xl mx-auto">
+    <div class="container max-w-7xl mx-auto text-sm md:text-lg">
       <!-- Desktop Menu -->
       <div class="flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
           <img
-            src="https://netos.lhu.edu.vn/_cdn/netos/udf_logo.png"
+            src="/udf_logo.png"
             alt="Logo"
             class="h-8 w-8 mr-2"
             referrerpolicy="no-referrer"
           />
           <span
-            class="transition-colors text-xl font-semibold"
+            class="transition-colors hover:text-opacity-80 md:text-xl font-bold"
             :class="{ 'text-white': !scrolled, 'text-gray-800': scrolled }"
-            >Uni Design Factory</span
+            >{{ t("companyName") }}</span
           >
         </div>
 
@@ -29,20 +29,30 @@
         <div class="hidden md:flex items-center space-x-6">
           <NuxtLinkLocale
             to="/"
-            class="transition-colors hover:text-orange-200 px-3 py-1 rounded-md"
-            :class="scrolled ? 'text-gray-800' : 'text-white'"
+            class="transition-colors hover:text-opacity-80 px-3 py-1 rounded-md"
+            :class="[scrolled ? 'text-gray-800' : 'text-white']"
+            active-class="font-bold underline underline-offset-8"
           >
             {{ t("home") }}
           </NuxtLinkLocale>
           <div class="relative group">
             <NuxtLinkLocale
               to="/products"
-              class="transition-colors"
-              :class="scrolled ? 'text-gray-800' : 'text-white'"
+              class="transition-colors hover:text-opacity-80"
+              :class="[
+                scrolled ? 'text-gray-800' : 'text-white',
+                {
+                  'font-bold underline underline-offset-8':
+                    currentRoute.path.includes('/products'),
+                },
+              ]"
+              active-class="font-bold underline underline-offset-8"
             >
               <button
-                class="transition-colors flex items-center"
+                class="transition-colors hover:text-opacity-80 flex items-center"
                 :class="scrolled ? 'text-gray-800' : 'text-white'"
+                @mouseover="productDropdown = true"
+                @mouseleave="productDropdown = false"
               >
                 {{ t("products") }}
                 <svg
@@ -62,29 +72,37 @@
             </NuxtLinkLocale>
             <!-- Dropdown Menu -->
             <div
-              class="absolute hidden group-hover:block w-64 bg-white shadow-lg py-2 rounded-lg"
+              class="absolute hidden group-hover:block w-72 bg-white shadow-lg py-2 rounded-lg"
+              v-show="productDropdown"
+              @mouseleave="productDropdown = false"
+              @mouseenter="productDropdown = true"
+              @click="productDropdown = false"
             >
               <NuxtLinkLocale
                 to="/products/solar-clean-bot"
                 class="block px-4 py-2 hover:bg-gray-100"
+                active-class="font-bold underline underline-offset-8"
               >
                 {{ t("productsList.solarCleanBot") }}
               </NuxtLinkLocale>
               <NuxtLinkLocale
                 to="/products/components-tester"
                 class="block px-4 py-2 hover:bg-gray-100"
+                active-class="font-bold underline underline-offset-8"
               >
                 {{ t("productsList.componentsTester") }}
               </NuxtLinkLocale>
               <NuxtLinkLocale
                 to="/products/factory-automation"
                 class="block px-4 py-2 hover:bg-gray-100"
+                active-class="font-bold underline underline-offset-8"
               >
                 {{ t("productsList.factoryAutomation") }}
               </NuxtLinkLocale>
               <NuxtLinkLocale
                 to="/products/training-equipment"
                 class="block px-4 py-2 hover:bg-gray-100"
+                active-class="font-bold underline underline-offset-8"
               >
                 {{ t("productsList.trainingEquipment") }}
               </NuxtLinkLocale>
@@ -92,15 +110,17 @@
           </div>
           <NuxtLinkLocale
             to="/about"
-            class="transition-colors"
-            :class="scrolled ? 'text-gray-800' : 'text-white'"
+            class="transition-colors hover:text-opacity-80"
+            :class="[scrolled ? 'text-gray-800' : 'text-white']"
+            active-class="font-bold underline underline-offset-8"
           >
             {{ t("about") }}
           </NuxtLinkLocale>
           <NuxtLinkLocale
             to="/contact"
-            class="transition-colors"
-            :class="scrolled ? 'text-gray-800' : 'text-white'"
+            class="transition-colors hover:text-opacity-80"
+            :class="[scrolled ? 'text-gray-800' : 'text-white']"
+            active-class="font-bold underline underline-offset-8"
           >
             {{ t("contact") }}
           </NuxtLinkLocale>
@@ -108,11 +128,7 @@
           <div class="flex items-center space-x-2 ml-4">
             <button
               @click="changeLanguage('vi')"
-              :class="{
-                'font-bold': currentLocale === 'vi',
-                'text-white': !scrolled,
-                'text-gray-800': scrolled,
-              }"
+              :class="['font-bold', scrolled ? 'text-gray-800' : 'text-white']"
               class="px-2 py-1 rounded transition-colors"
             >
               VN
@@ -222,40 +238,59 @@
             <NuxtLinkLocale
               to="/"
               class="block py-3 border-b"
-              :class="
+              :class="[
                 scrolled
                   ? 'text-gray-800 border-gray-100'
-                  : 'text-white border-orange-400'
-              "
+                  : 'text-white border-orange-400',
+              ]"
+              active-class="font-bold"
+              @click="closeMenus"
             >
               {{ t("home") }}
             </NuxtLinkLocale>
             <div class="relative">
-              <button
-                @click="productDropdown = !productDropdown"
-                class="w-full text-left py-3 border-b flex justify-between items-center"
-                :class="{
-                  'text-white border-orange-400': !scrolled,
-                  'text-gray-800 border-gray-100': scrolled,
-                }"
-              >
-                {{ t("products") }}
-                <svg
-                  v-if="!productDropdown"
-                  class="w-4 h-4 transform transition-transform duration-200"
-                  :class="{ 'rotate-180': productDropdown }"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              <div class="flex items-center justify-between">
+                <NuxtLinkLocale
+                  to="/products"
+                  class="w-full text-left py-3 border-b flex justify-between items-center"
+                  :class="[
+                    scrolled
+                      ? 'text-gray-800 border-gray-100'
+                      : 'text-white border-orange-400',
+                    {
+                      'font-bold':
+                        currentRoute.path.includes('/products'),
+                    },
+                  ]"
+                  @click="closeMenus">
+                  {{ t("products") }}
+                </NuxtLinkLocale>
+                <button
+                  @click="productDropdown = !productDropdown"
+                  class="text-center p-2 border-b flex justify-between items-center"
+                  :class="[
+                    scrolled
+                      ? 'text-gray-800 border-gray-100'
+                      : 'text-white border-orange-400',
+                  ]"
+                  active-class="font-bold"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </button>
+                  <svg
+                    class="w-4 h-4 transform transition-transform duration-200"
+                    :class="{ 'rotate-180': productDropdown }"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
 
               <!-- Products Submenu với transition -->
               <transition
@@ -268,55 +303,23 @@
               >
                 <div
                   v-show="productDropdown"
-                  :class="{
-                    'bg-orange-600': !scrolled,
-                    'bg-gray-50': scrolled,
-                  }"
+                  :class="[scrolled ? 'bg-gray-50' : 'bg-orange-600']"
                   class="px-4"
                 >
                   <NuxtLinkLocale
-                    to="/products/solar-clean-bot"
+                    v-for="product in products"
+                    :to="product.link"
                     class="block py-3 border-b"
-                    :class="
+                    :class="[
                       scrolled
                         ? 'text-gray-800 border-gray-100'
-                        : 'text-white border-orange-400'
-                    "
+                        : 'text-white border-orange-400',
+                    ]"
+                    active-class="font-bold"
+                    @click="closeMenus"
+                    :key="product.id"
                   >
-                    {{ t("productsList.solarCleanBot") }}
-                  </NuxtLinkLocale>
-                  <NuxtLinkLocale
-                    to="/products/components-tester"
-                    class="block py-3 border-b"
-                    :class="
-                      scrolled
-                        ? 'text-gray-800 border-gray-100'
-                        : 'text-white border-orange-400'
-                    "
-                  >
-                    {{ t("productsList.componentsTester") }}
-                  </NuxtLinkLocale>
-                  <NuxtLinkLocale
-                    to="/products/factory-automation"
-                    class="block py-3 border-b"
-                    :class="
-                      scrolled
-                        ? 'text-gray-800 border-gray-100'
-                        : 'text-white border-orange-400'
-                    "
-                  >
-                    {{ t("productsList.factoryAutomation") }}
-                  </NuxtLinkLocale>
-                  <NuxtLinkLocale
-                    to="/products/training-equipment"
-                    class="block py-3 border-b"
-                    :class="
-                      scrolled
-                        ? 'text-gray-800 border-gray-100'
-                        : 'text-white border-orange-400'
-                    "
-                  >
-                    {{ t("productsList.trainingEquipment") }}
+                    {{ product.name }}
                   </NuxtLinkLocale>
                 </div>
               </transition>
@@ -325,22 +328,26 @@
             <NuxtLinkLocale
               to="/about"
               class="block py-3 border-b"
-              :class="
+              :class="[
                 scrolled
                   ? 'text-gray-800 border-gray-100'
-                  : 'text-white border-orange-400'
-              "
+                  : 'text-white border-orange-400',
+              ]"
+              active-class="font-bold"
+              @click="closeMenus"
             >
               {{ t("about") }}
             </NuxtLinkLocale>
             <NuxtLinkLocale
               to="/contact"
               class="block py-3 border-b"
-              :class="
+              :class="[
                 scrolled
                   ? 'text-gray-800 border-gray-100'
-                  : 'text-white border-orange-400'
-              "
+                  : 'text-white border-orange-400',
+              ]"
+              active-class="font-bold"
+              @click="closeMenus"
             >
               {{ t("contact") }}
             </NuxtLinkLocale>
@@ -356,6 +363,8 @@ import { useWindowScroll, useWindowSize, useStorage } from "@vueuse/core";
 const { setLocale, locale, t } = useI18n({
   scope: "header",
 });
+
+const currentRoute = useRoute();
 
 onMounted(() => {
   localStorage.setItem("currentLocale", locale.value);
@@ -374,14 +383,51 @@ const { y } = useWindowScroll();
 
 const scrolled = computed(() => y.value > 50);
 
+// on scroll
+watch(scrolled, () => {
+  if (scrolled.value) {
+    mobileMenu.value = false;
+  }
+});
+
 const { width: screenWidth } = useWindowSize();
 
 const mobileMenu = ref(false);
 const productDropdown = ref(false);
+
+const closeMenus = () => {
+  mobileMenu.value = false;
+};
+
+const products = computed(() => {
+  return [
+    {
+      id: 1,
+      name: t("productsList.solarCleanBot"),
+      link: "/products/solar-clean-bot",
+    },
+    {
+      id: 2,
+      name: t("productsList.componentsTester"),
+      link: "/products/components-tester",
+    },
+    {
+      id: 3,
+      name: t("productsList.factoryAutomation"),
+      link: "/products/factory-automation",
+    },
+    {
+      id: 4,
+      name: t("productsList.trainingEquipment"),
+      link: "/products/training-equipment",
+    },
+  ];
+});
 </script>
 
 <i18n lang="json">{
   "en": {
+    "companyName": "Uni Design Factory",
     "home": "Home",
     "products": "Products",
     "productsList": {
@@ -394,12 +440,13 @@ const productDropdown = ref(false);
     "contact": "Contact"
   },
   "vi": {
+    "companyName": "Uni Design Factory",
     "home": "Trang chủ",
     "products": "Sản phẩm",
     "productsList": {
-      "solarCleanBot": "Robot rửa xe mặt trời",
-      "componentsTester": "Máy kiểm tra linh kiện",
-      "factoryAutomation": "Hệ thống tự động hóa",
+      "solarCleanBot": "Robot vệ sinh solar",
+      "componentsTester": "Thiết bị kiểm tra linh kiện",
+      "factoryAutomation": "Tự động hoá sản xuất",
       "trainingEquipment": "Thiết bị đào tạo"
     },
     "about": "Về chúng tôi",
