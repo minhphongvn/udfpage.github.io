@@ -1,1 +1,0 @@
-import{_ as n,c as t,a as r,o as a}from"./DweYXMoc.js";const o={};function s(c,e){return a(),t("div",null,e[0]||(e[0]=[r("h1",null,"Training Equipment",-1)]))}const l=n(o,[["render",s]]);export{l as default};
