@@ -98,7 +98,7 @@
               class="text-center"
             >
               <img
-                :src="director.image"
+                :src="`/udfpage.github.io/about/directors/${director.image}`"
                 :alt="director.name"
                 class="mx-auto mb-4 object-cover rounded-lg"
               />
@@ -127,46 +127,44 @@ const { t } = useI18n({
   scope: "about",
 });
 
-const basePath = "/udfpage.github.io";
-
 const directors = [
   {
     name: "Mr. Anh Le",
     position: "Chairman",
     education: "Master of Electronics Engineering",
-    image: `${basePath}/about/directors/AnhLe.png`,
+    image: "AnhLe.png",
   },
   {
     name: "Ms. Thao Tran",
     position: "Chief Financial Officer (CFO)",
     education: "Master of Accounting",
-    image: `${basePath}/about/directors/ThaoTran.png`,
+    image: "ThaoTran.png",
   },
   {
     name: "Mr. Nguyen Do",
     position: "Senior Technical Manager",
     education: "Master of Electronics Engineering",
     additionalInfo: "Former Lecturer at Lac Hong University",
-    image: `${basePath}/about/directors/NguyenDo.png`,
+    image: "NguyenDo.png",
   },
   {
     name: "Mr. Son Pham",
     position: "Chief Executive Officer (CEO)",
     education: "Master of Electrical Engineering",
     additionalInfo: "Former Lecturer at Lac Hong University",
-    image: `${basePath}/about/directors/SonPham.png`,
+    image: "SonPham.png",
   },
   {
     name: "Mr. Duc Tran",
     position: "Technnical Manager",
     education: "Master of Electrical Engineering",
-    image: `${basePath}/about/directors/DucTran.png`,
+    image: "DucTran.png",
   },
   {
     name: "Mr. Khuong Nguyen",
     position: "Head of Technical Department",
     education: "Master of Electrical Engineering",
-    image: `${basePath}/about/directors/KhuongNguyen.png`,
+    image: "KhuongNguyen.png",
   },
 ];
 </script>
