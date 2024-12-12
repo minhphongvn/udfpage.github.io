@@ -1,0 +1,1 @@
+import{_ as t,c as e,a,o as n}from"./Bwx4UL5d.js";const r={};function c(s,o){return n(),e("div",null,o[0]||(o[0]=[a("h1",null,"Factory Automation",-1)]))}const f=t(r,[["render",c]]);export{f as default};
