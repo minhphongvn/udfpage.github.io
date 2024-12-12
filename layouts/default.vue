@@ -3,44 +3,58 @@ const route = useRoute();
 const { locale, t } = useI18n();
 const head = useLocaleHead();
 
-const listPageHero = {
-  "/": {
-    bg: "/home/hero_bg.png",
-    title: t("home"),
-  },
-  "/products": {
-    bg: "/products/hero_bg_products.png",
-    title: t("products"),
-  },
-  "/products/solar-clean-bot": {
-    bg: "/products/solar-clean-bot/solar_hero.png",
-    title: t("productsList.solarCleanBot"),
-  },
-  "/products/components-tester": {
-    bg: null,
-    title: t("productsList.componentsTester"),
-  },
-  "/products/factory-automation": {
-    bg: null,
-    title: t("productsList.factoryAutomation"),
-  },
-  "/products/training-equipment": {
-    bg: null,
-    title: t("productsList.trainingEquipment"),
-  },
-  "/about": {
-    bg: "/about/hero_bg_about.png",
-    title: t("about"),
-  },
-  "/contact": {
-    bg: "/contact/hero_bg_contact.png",
-    title: t("contact"),
-  },
-};
 // change hero bg image based on the current page when using i18n
 const contentHero = computed(() => {
-  const currentPath =
-    route.path === "/" ? "/" : route.path.replace(`/${locale.value}`, "");
+  const listPageHero = {
+    "/": {
+      bg: "/home/hero_bg.png",
+      title: t("home"),
+    },
+    "/products": {
+      bg: "/products/hero_bg_products.png",
+      title: t("products"),
+    },
+    "/products/solar-clean-bot": {
+      bg: "/products/solar-clean-bot/solar_hero.png",
+      title: t("productsList.solarCleanBot"),
+    },
+    "/products/components-tester": {
+      bg: null,
+      title: t("productsList.componentsTester"),
+    },
+    "/products/factory-automation": {
+      bg: null,
+      title: t("productsList.factoryAutomation"),
+    },
+    "/products/training-equipment": {
+      bg: null,
+      title: t("productsList.trainingEquipment"),
+    },
+    "/about": {
+      bg: "/about/hero_bg_about.png",
+      title: t("about"),
+    },
+    "/contact": {
+      bg: "/contact/hero_bg_contact.png",
+      title: t("contact"),
+    },
+  };
+
+  // Xử lý đường dẫn cho cả tiếng Việt và tiếng Anh
+  let currentPath = route.path;
+
+  // Nếu là trang chủ (/ hoặc /en)
+  if (currentPath === "/" || currentPath === "/en") {
+    currentPath = "/";
+  } else {
+    // Xóa prefix ngôn ngữ nếu có (/en hoặc /vi)
+    currentPath = currentPath.replace(/^\/(en|vi)/, "");
+    // Thêm dấu / ở đầu nếu bị mất
+    if (!currentPath.startsWith("/")) {
+      currentPath = "/" + currentPath;
+    }
+  }
+
   return {
     bg: listPageHero[currentPath]?.bg,
     title: listPageHero[currentPath]?.title,
@@ -68,7 +82,7 @@ const isContactPage = computed(() => {
               <div class="bg-orange-500 py-6">
                 <template v-if="contentHero.bg">
                   <img
-                    :src="contentHero.bg"
+                    :src="`/udfpage.github.io/${contentHero.bg}`"
                     alt="Robots"
                     class="w-full max-w-6xl mx-auto h-auto"
                     referrerpolicy="no-referrer"

@@ -6,7 +6,7 @@
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="w-full md:w-1/2">
               <img
-                src="https://netos.lhu.edu.vn/_cdn/netos/about_mission.png"
+                src="/about/about_mission.png"
                 alt="Mission"
                 class="w-full h-auto"
               />
@@ -39,7 +39,7 @@
             </div>
             <div class="w-full md:w-1/2 order-1 md:order-2">
               <img
-                src="https://netos.lhu.edu.vn/_cdn/netos/about_vision.png"
+                src="/about/about_vision.png"
                 alt="Vision"
                 class="w-full h-auto"
               />
@@ -56,7 +56,7 @@
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="w-full md:w-1/2">
               <img
-                src="https://netos.lhu.edu.vn/_cdn/netos/about_company.png"
+                src="/about/about_company.png"
                 alt="Company"
                 class="w-full h-auto"
               />
@@ -127,44 +127,46 @@ const { t } = useI18n({
   scope: "about",
 });
 
+const basePath = "/udfpage.github.io";
+
 const directors = [
   {
     name: "Mr. Anh Le",
     position: "Chairman",
     education: "Master of Electronics Engineering",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/AnhLe.png",
+    image: `${basePath}/about/directors/AnhLe.png`,
   },
   {
     name: "Ms. Thao Tran",
     position: "Chief Financial Officer (CFO)",
     education: "Master of Accounting",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/ThaoTran.png",
+    image: `${basePath}/about/directors/ThaoTran.png`,
   },
   {
     name: "Mr. Nguyen Do",
     position: "Senior Technical Manager",
     education: "Master of Electronics Engineering",
     additionalInfo: "Former Lecturer at Lac Hong University",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/NguyenDo.png",
+    image: `${basePath}/about/directors/NguyenDo.png`,
   },
   {
     name: "Mr. Son Pham",
     position: "Chief Executive Officer (CEO)",
     education: "Master of Electrical Engineering",
     additionalInfo: "Former Lecturer at Lac Hong University",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/SonPham.png",
+    image: `${basePath}/about/directors/SonPham.png`,
   },
   {
     name: "Mr. Duc Tran",
     position: "Technnical Manager",
     education: "Master of Electrical Engineering",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/DucTran.png",
+    image: `${basePath}/about/directors/DucTran.png`,
   },
   {
     name: "Mr. Khuong Nguyen",
     position: "Head of Technical Department",
     education: "Master of Electrical Engineering",
-    image: "https://netos.lhu.edu.vn/_cdn/netos/KhuongNguyen.png",
+    image: `${basePath}/about/directors/KhuongNguyen.png`,
   },
 ];
 </script>
