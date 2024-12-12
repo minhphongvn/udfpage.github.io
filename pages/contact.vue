@@ -1,5 +1,46 @@
 <template>
   <div>
-    <h1>Contact</h1>
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl font-semibold text-center mb-12">
+            {{ t("contact.title") }}
+          </h2>
+        </div>
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-1/2">
+              <img
+                src="/contact/udf-logo.png"
+                alt="Robots"
+                class="w-full h-auto max-w-md"
+              />
+            </div>
+            <div class="w-full md:w-1/2">
+              <BaseAppFooter class="text-[20px]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
+<script setup>
+const { t } = useI18n({
+  scope: "contact",
+});
+</script>
+<i18n lang="json">
+  {
+    "en": {
+      "contact": {
+        "title": "Contact"
+      }
+    },
+    "vi": {
+      "contact": {
+        "title": "Liên hệ"
+      }
+    }
+  }
+</i18n>

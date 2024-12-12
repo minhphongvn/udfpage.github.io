@@ -1,23 +1,9 @@
 <template>
   <div>
-    <!-- About Section - Ngay sau Hero -->
-    <section class="py-12 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="max-w-7xl mx-auto">
-          <div class="text-justify">
-            <p class="text-lg mb-4">{{ t("about.description") }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Products Section -->
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl font-semibold text-center mb-12">
-            {{ t("products.title") }}
-          </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- SolarCleanBot -->
             <div
@@ -45,19 +31,6 @@
                 </div>
               </NuxtLinkLocale>
             </div>
-          </div>
-        </div>
-        <div class="max-w-7xl mx-auto py-10">
-          <h2 class="text-3xl font-semibold text-center mb-12">
-            {{ t("strategic_partnership") }}
-          </h2>
-          <div>
-            <img
-              src="/home/strategic_partnership.png"
-              alt="Strategic Partnership"
-              class="w-full h-auto"
-              referrerpolicy="no-referrer"
-            />
           </div>
         </div>
       </div>
@@ -99,17 +72,3 @@ const products = computed(() => {
   ];
 });
 </script>
-<i18n lang="json">{
-  "en": {
-    "products": {
-      "title": "Products"
-    },
-    "strategic_partnership": "Strategic Partnership"
-  },
-  "vi": {
-    "products": {
-      "title": "Sản phẩm"
-    },
-    "strategic_partnership": "Đối tác chiến lược"
-  }
-}</i18n>
