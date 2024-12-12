@@ -1,0 +1,1 @@
+import{u as a}from"./tIoRuBQv.js";import{c as s,a as t,o}from"./UjM4jolw.js";const m={__name:"solar-clean-bot",setup(l){return a(),(n,e)=>(o(),s("div",null,e[0]||(e[0]=[t("section",{class:"py-16"},[t("div",{class:"container mx-auto px-4"},[t("div",{class:"max-w-7xl mx-auto"},[t("h1",{class:"text-4xl font-bold text-center"})])])],-1)])))}};export{m as default};
