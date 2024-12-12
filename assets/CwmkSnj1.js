@@ -1,0 +1,1 @@
+import{_ as t,c as n,a as c,b as s,o as r,g as a}from"./3mz0ZIPp.js";const _={};function d(u,e){const o=a;return r(),n("div",null,[e[0]||(e[0]=c("div",null,"Products",-1)),s(o)])}const p=t(_,[["render",d]]);export{p as default};
