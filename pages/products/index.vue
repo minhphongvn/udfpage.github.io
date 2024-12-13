@@ -48,25 +48,25 @@ const products = computed(() => {
     {
       name: t("products.solarCleanBot.name"),
       description: t("products.solarCleanBot.description"),
-      image: "https://netos.lhu.edu.vn/_cdn/netos/solar_bot.png",
+      image: "/products/solar-clean-bot/solar_bot.png",
       link: "solar-clean-bot",
     },
     {
       name: t("products.componentsTester.name"),
       description: t("products.componentsTester.description"),
-      image: "https://netos.lhu.edu.vn/_cdn/netos/component_tester.png",
+      image: "/products/components-tester/component_tester.png",
       link: "components-tester",
     },
     {
       name: t("products.factoryAutomation.name"),
       description: t("products.factoryAutomation.description"),
-      image: "https://netos.lhu.edu.vn/_cdn/netos/factory_automation.png",
+      image: "/products/factory-automation/factory_automation.png",
       link: "factory-automation",
     },
     {
       name: t("products.trainingEquipment.name"),
       description: t("products.trainingEquipment.description"),
-      image: "https://netos.lhu.edu.vn/_cdn/netos/training_equipment.png",
+      image: "/products/training-equipment/training_equipment.png",
       link: "training-equipment",
     },
   ];

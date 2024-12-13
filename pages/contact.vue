@@ -8,12 +8,12 @@
           </h2>
         </div>
         <div class="max-w-7xl mx-auto">
-          <div class="flex flex-col-reverse md:flex-row items-center gap-8">
-            <div class="md:w-1/2">
+          <div class="flex flex-col-reverse md:flex-row md:justify-center gap-8">
+            <div class="grow-0">
               <img
                 src="/contact/udf-logo.png"
                 alt="Robots"
-                class="w-1/2 mx-auto md:w-full md:h-auto md:max-w-md"
+                class="w-2/3 mx-auto md:w-full md:h-auto md:max-w-md ring-2 ring-gray-500 rounded-3xl p-4 md:p-16"
               />
             </div>
             <div class="w-full md:w-1/2">
